@@ -15,12 +15,5 @@ class Solution(object):
                 return False
         return True
             
-            
-
-if __name__ == '__main__':
-    candies = [5,8,6]
-    k = 3
-    solution = Solution()
-    print(solution.maximumCandies(candies, k))
 
             
