@@ -5,14 +5,13 @@ class Solution(object):
         :type rectangles: List[List[int]]
         :rtype: bool
         """
-        x_coords = [[x[0], x[2]] for x in rectangles]
         y_coords = [[x[1], x[3]] for x in rectangles]
-        x_coords.sort(key=lambda x: x[0])
         y_coords.sort(key=lambda x: x[0])
-        print(self.areTwoCuts(x_coords, n))
-        print(self.areTwoCuts(y_coords, n))
-        return self.areTwoCuts(x_coords, n) or self.areTwoCuts(y_coords, n)
-    
+        if self.areTwoCuts(y_coords, n):
+            return True
+        x_coords = [[x[0], x[2]] for x in rectangles]
+        x_coords.sort(key=lambda x: x[0])
+        return self.areTwoCuts(x_coords, n)
     def areTwoCuts(self, n_coords, n):
         cut_count = 0
         pivot = 0
@@ -36,4 +35,3 @@ if __name__ == "__main__":
     n = 4
     rectangles = [[0,2,2,4],[1,0,3,2],[2,2,3,4],[3,0,4,2],[3,2,4,4]]
     print(sol.checkValidCuts(n, rectangles)) # 
-    
